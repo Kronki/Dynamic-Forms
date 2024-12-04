@@ -23,10 +23,14 @@ namespace BiznesiImTest.Controllers
         [HttpPost("CreateForm")]
         public async Task<IActionResult> CreateForm([FromBody]NewFormVM model)
         {
+            var formFields = new List<FormField>();
+            foreach(var formFieldVM in model.FormFields)
+            {
+                var formField = _mapper.Map<FormField>(formFieldVM);
+                formFields.Add(formField);
+            }
             //var formFields = _mapper.Map<List<FormField>>(model.FormFields);
             var form = _mapper.Map<Form>(model.Form);
-            var formFields = model.FormFields;
-            //var form = model.Form;
             form.Fields = formFields;
             _context.Forms.Add(form);
             var isSaved = await _context.SaveChangesAsync();
@@ -67,7 +71,7 @@ namespace BiznesiImTest.Controllers
 
                 foreach (var field in row)
                 {
-                    var colSpan = field.ColumnSpan * 6; // Assuming a 12-column grid (e.g., Bootstrap)
+                    var colSpan = field.ColumnSpan; // Assuming a 12-column grid (e.g., Bootstrap)
                     formHtml += $"<div class='col-md-{colSpan}'>";
 
                     // Add field label
