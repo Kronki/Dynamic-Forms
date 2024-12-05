@@ -15,5 +15,7 @@ namespace BiznesiImTest.Models
         public string? Options { get; set; } // JSON string for options (e.g., radio button values)
         public int FormId { get; set; } // Foreign Key
         public Form? Form { get; set; } = default!; // Navigation property
+        public string? RegexPattern { get; set; } // Regex for validation (optional)
+        public string? ValidationMessage { get; set; } // Validation message to show on regex failure
     }
 }

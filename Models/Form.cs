@@ -10,5 +10,6 @@ namespace BiznesiImTest.Models
         public string Title { get; set; } = string.Empty;
         public string Description { get; set; } = string.Empty;
         public List<FormField>? Fields { get; set; } = new List<FormField>();
+        public List<Submission>? Submissions { get; set; } = new List<Submission>();
     }
 }

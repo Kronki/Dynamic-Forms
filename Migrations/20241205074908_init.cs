@@ -38,7 +38,9 @@ namespace BiznesiImTest.Migrations
                     Row = table.Column<int>(type: "int", nullable: false),
                     ColumnSpan = table.Column<int>(type: "int", nullable: false),
                     Options = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    FormId = table.Column<int>(type: "int", nullable: false)
+                    FormId = table.Column<int>(type: "int", nullable: false),
+                    RegexPattern = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ValidationMessage = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -58,7 +60,7 @@ namespace BiznesiImTest.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     FormId = table.Column<int>(type: "int", nullable: false),
-                    Timestamp = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Data = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>

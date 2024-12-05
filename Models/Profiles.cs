@@ -10,6 +10,7 @@ namespace BiznesiImTest.Models
             CreateMap<FormFieldVM, FormField>();
             //CreateMap<List<FormFieldVM>, List<FormField>>();
             CreateMap<FormVM, Form>();
+            CreateMap<SubmissionVM, Submission>();
         }
     }
 }

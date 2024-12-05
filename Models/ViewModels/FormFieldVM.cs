@@ -9,6 +9,7 @@
         public int Row { get; set; } // Row number for layout
         public int ColumnSpan { get; set; } = 1; // Number of columns the field spans
         public string? Options { get; set; } // JSON string for options (e.g., radio button values)
-        public int FormId { get; set; } // Foreign Key
+        public string? RegexPattern { get; set; } // Regex for validation (optional)
+        public string? ValidationMessage { get; set; } // Validation message to show on regex failure
     }
 }

@@ -71,11 +71,17 @@ namespace BiznesiImTest.Migrations
                     b.Property<string>("Options")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("RegexPattern")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("Row")
                         .HasColumnType("int");
 
                     b.Property<string>("Type")
                         .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ValidationMessage")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -93,15 +99,15 @@ namespace BiznesiImTest.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Data")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("FormId")
                         .HasColumnType("int");
-
-                    b.Property<DateTime>("Timestamp")
-                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
@@ -124,7 +130,7 @@ namespace BiznesiImTest.Migrations
             modelBuilder.Entity("BiznesiImTest.Models.Submission", b =>
                 {
                     b.HasOne("BiznesiImTest.Models.Form", "Form")
-                        .WithMany()
+                        .WithMany("Submissions")
                         .HasForeignKey("FormId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -135,6 +141,8 @@ namespace BiznesiImTest.Migrations
             modelBuilder.Entity("BiznesiImTest.Models.Form", b =>
                 {
                     b.Navigation("Fields");
+
+                    b.Navigation("Submissions");
                 });
 #pragma warning restore 612, 618
         }
