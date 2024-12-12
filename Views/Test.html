@@ -10,110 +10,60 @@
 
 </head>
 
-<body class=" d-flex justify-content-center">
-    <div class="w-50 p-3">
-    <h1 class="text-center mb-3">Forma 2</h1>
-    <h6 class="text-center mb-3">Pershkrimi 2</h6>
-    <form id='1' class="">
-        <div class='row mb-3'>
-
-            <div class="col-md-6 mb-1 form-group">
-                <label for="Emri">Emri / Name <span style="color: red;">*</span></label>
-                <input 
-                  type="text" 
-                  class="form-control" 
-                  id="Emri" 
-                  name="Emri" 
-                  placeholder="Enter your first name" 
-                  required 
-                  pattern="^[A-Z][a-zëç]+(?: [A-Z][a-zëç]+)*$" 
-                  title="Emri duhet të fillojë me shkronjë të madhe dhe të përmbajë vetëm shkronja dhe hapësira."
-                />
-                <!-- <small class="form-text text-muted ">Emri duhet të fillojë me shkronjë të madhe dhe të përmbajë vetëm shkronja dhe hapësira.</small> -->
-              </div>
-              
-              <div class="col-md-6 mb-1 form-group">
-                <label for="Mbiemri">Mbiemri / Surname <span style="color: red;">*</span></label>
-                <input 
-                  type="text" 
-                  class="form-control" 
-                  id="Mbiemri" 
-                  name="Mbiemri" 
-                  placeholder="Enter your surname" 
-                  required 
-                  pattern="^[A-Z][a-zëç]+(?:-[A-Z][a-zëç]+)*$" 
-                  title="Mbiemri duhet të fillojë me shkronjë të madhe dhe të përmbajë vetëm shkronja, hapësira ose ndarje me vijë."
-                />
-                <!-- <small class="form-text text-muted hidden">Mbiemri duhet të fillojë me shkronjë të madhe dhe të përmbajë vetëm shkronja, hapësira ose ndarje me vijë.</small> -->
-              </div>
-
-        </div>
-
-        <div class='row mb-3'>
-
-            <div class="mb-1 form-group">
-                <label for="Email">Email <span style="color: red;">*</span></label>
-                <input 
-                  type="email" 
-                  class="form-control " 
-                  id="Email" 
-                  name="Email" 
-                  placeholder="Enter email" 
-                  required 
-                  pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" 
-                  title="Ju lutemi jepni një adresë email të vlefshme."
-                />
-                <!-- <small id="emailHelp" class="form-text text-muted">Ju lutemi jepni një adresë email të vlefshme.</small> -->
-              </div>
-
-        </div>
-
-        <div class='row mb-3'>
-
-            <div class="col-md-12  form-group">
-                <label for="Gender">Gender / Gjinia <span style="color: red;">*</span></label>
-                <select 
-                  class="form-control" 
-                  id="Gender" 
-                  name="Gender" 
-                  required
-                >
-                  <option value="" disabled selected>Select Gender / Gjinia</option>
-                  <option value="Male">Male</option>
-                  <option value="Female">Female</option>
-                  <option value="Other">Other</option>
-                </select>
-                <!-- <small class="form-text text-muted">Ju lutemi zgjidhni gjininë tuaj.</small> -->
-              </div>
-
-    </div>
-
-    <div class='row'>
-
-        <div class='col-md-12 mb-3'>
-            <label for='Employee'>Numri i punëtorëve / Number of employees <span style='color: red;'>*</span></label>
-                <div class="mb-1">
-                    <input type='radio' id='Employee_0-49' name='Employee' value='0-49' />
-                    <label for='Employee_0-49'>0-49</label>
-                </div>
-                <div class="mb-1">
-                    <input type='radio' id='Employee_50-249' name='Employee' value='50-249' />
-                    <label for='Employee_50-249'>50-249</label>
-                </div>
-                <div class="mb-1">
-                    <input type='radio' id='Employee_250+' name='Employee' value='250+' />
-                    <label for='Employee_250+'>250+</label>
-                </div>
-            </div>
-            
-        </div>
-        <div class="d-flex justify-content-center">
-            <button type='submit' class="btn btn-primary btn-md w-100">Submit</button>
-        </div>
-        
-    </form>
-
-</div>
+<body class="">
+    <div class='d-flex justify-content-center'><div class='w-50'><h1 class='text-center mb-3'>Forma 2</h1><h6 class='text-center mb-3'>Pershkrimi 2</h6><form id='2'><div class='row mb-3'><div class='col-md-6 form-group'><label for='Emri'>Emri / Name <span style='color: red;'>*</span></label>
+        <input type='text' 
+       class='form-control'
+      id='Emri' 
+      name='Emri' 
+      required 
+      data-regex='^[A-Z][a-zëç]+(?: [A-Z][a-zëç]+)*$' 
+      data-validation-message='Emri duhet të fillojë me shkronjë të madhe dhe të përmbajë vetëm shkronja dhe hapësira.' /></div><div class='col-md-6 form-group'><label for='Mbiemri'>Mbiemri / Surname <span style='color: red;'>*</span></label>
+        <input type='text' 
+       class='form-control'
+      id='Mbiemri' 
+      name='Mbiemri' 
+      required 
+      data-regex='^[A-Z][a-zëç]+(?:-[A-Z][a-zëç]+)*$' 
+      data-validation-message='Mbiemri duhet të fillojë me shkronjë të madhe dhe të përmbajë vetëm shkronja, hapësira ose ndarje me vijë.' /></div></div><div class='row mb-3'><div class='col-md-12 form-group'><label for='Email'>Email <span style='color: red;'>*</span></label>
+        <input type='text' 
+       class='form-control'
+      id='Email' 
+      name='Email' 
+      required 
+      data-regex='^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$' 
+      data-validation-message='Ju lutemi jepni një adresë email të vlefshme.' /></div><div class='col-md-12 form-group'><label for='Email'>Email <span style='color: red;'>*</span></label>
+        <input type='text' 
+       class='form-control'
+      id='Email' 
+      name='Email' 
+      required 
+      data-regex='^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$' 
+      data-validation-message='Ju lutemi jepni një adresë email të vlefshme.' /></div></div><div class='row mb-3'><div class='col-md-12 form-group'><label for='Gender'>Gender / Gjinia <span style='color: red;'>*</span></label><div class='col-md-12 mb-3 form-group'><select class='form-control' id='Gender' name='Gender' required><option value='' disabled selected>Select Gender / Gjinia</option><option value='Male'>Male</option><option value='Female'>Female</option><option value='Other'>Other</option></select></div></div></div><div class='row mb-3'><div class='col-md-12 form-group'><label for='Employee'>Numri i punëtorëve / Number of employees <span style='color: red;'>*</span></label>
+       <div>
+           <input type='radio' id='Employee_0-49' name='Employee' value='0-49' />
+           <label for='Employee_0-49'>0-49</label>
+       </div>
+       <div>
+           <input type='radio' id='Employee_50-249' name='Employee' value='50-249' />
+           <label for='Employee_50-249'>50-249</label>
+       </div>
+       <div>
+           <input type='radio' id='Employee_250+' name='Employee' value='250+' />
+           <label for='Employee_250+'>250+</label>
+       </div></div><div class='col-md-12 form-group'><label for='Employee'>Numri i punëtorëve / Number of employees <span style='color: red;'>*</span></label>
+       <div>
+           <input type='radio' id='Employee_0-49' name='Employee' value='0-49' />
+           <label for='Employee_0-49'>0-49</label>
+       </div>
+       <div>
+           <input type='radio' id='Employee_50-249' name='Employee' value='50-249' />
+           <label for='Employee_50-249'>50-249</label>
+       </div>
+       <div>
+           <input type='radio' id='Employee_250+' name='Employee' value='250+' />
+           <label for='Employee_250+'>250+</label>
+       </div></div></div><div class='d-flex justify-content-center'><button type='submit' class='btn btn-primary btn-md w-100'>Submit</button></div></div></div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <script src="./test.js"></script>

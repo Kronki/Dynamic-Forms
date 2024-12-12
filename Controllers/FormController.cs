@@ -62,16 +62,20 @@ namespace BiznesiImTest.Controllers
                 .GroupBy(f => f.Row)
                 .ToList();
 
-            var formHtml = $"<h1>{form.Title}</h1><p>{form.Description}</p><form id='{form.Id}'>";
+            var formHtml = "<div class='d-flex justify-content-center'>" +
+           "<div class='w-50'>" +
+           $"<h1 class='text-center mb-3'>{form.Title}</h1>" +
+           $"<h6 class='text-center mb-3'>{form.Description}</h6>" +
+           "<form id='" + form.Id + "'>";
 
             foreach (var row in groupedFields)
             {
-                formHtml += "<div class='row'>";
+                formHtml += "<div class='row mb-3'>";
 
                 foreach (var field in row)
                 {
                     var colSpan = field.ColumnSpan;
-                    formHtml += $"<div class='col-md-{colSpan}'>";
+                    formHtml += $"<div class='col-md-{colSpan} form-group'>";
 
                     // Add red asterisk for required fields
                     var requiredMarker = field.IsRequired ? "<span style='color: red;'>*</span>" : "";
@@ -99,7 +103,9 @@ namespace BiznesiImTest.Controllers
                             if (!string.IsNullOrEmpty(field.Options))
                             {
                                 var options = System.Text.Json.JsonSerializer.Deserialize<List<string>>(field.Options);
-                                formHtml += $"<select id='{field.Name}' name='{field.Name}' {(field.IsRequired ? "required" : "")}>";
+                                formHtml += $"<div class='col-md-{field.ColumnSpan} mb-3 form-group'>";
+                                //formHtml += $"<label for='{field.Name}'>{field.Label} required </label>";
+                                formHtml += $"<select class='form-control' id='{field.Name}' name='{field.Name}' {(field.IsRequired ? "required" : "")}>";
 
                                 if (!options.Contains("multiple"))
                                 {
@@ -111,6 +117,7 @@ namespace BiznesiImTest.Controllers
                                     formHtml += $"<option value='{option}'>{option}</option>";
                                 }
                                 formHtml += "</select>";
+                                formHtml += "</div>";
                             }
                             break;
 
@@ -131,7 +138,8 @@ namespace BiznesiImTest.Controllers
 
                         default:
                             formHtml += $@"
-                <input type='{field.Type}' 
+                         <input type='{field.Type}' 
+                        class='form-control'
                        id='{field.Name}' 
                        name='{field.Name}' 
                        {(field.IsRequired ? "required" : "")} 
@@ -146,7 +154,11 @@ namespace BiznesiImTest.Controllers
                 formHtml += "</div>";
             }
 
-            formHtml += "<button type='submit'>Submit</button></form>";
+            formHtml += "<div class='d-flex justify-content-center'>";
+            formHtml += "<button type='submit' class='btn btn-primary btn-md w-100'>Submit</button>";
+            formHtml += "</div>";
+            formHtml += "</div>";
+            formHtml += "</div>";
             return Ok(formHtml);
         }
 
